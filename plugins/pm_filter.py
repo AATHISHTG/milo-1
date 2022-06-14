@@ -415,7 +415,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.delete()
         await query.message.reply(
-            text=script.AUTOFILTER_TXT.format(temp.B_NAME),
+            text=script.START_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html',
             disable_web_page_preview=True
