@@ -450,37 +450,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-    elif query.data == "manuelfilter":
-        buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('⏹️ Buttons', callback_data='button')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.MANUELFILTER_TXT,
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
-    elif query.data == "button":
-        buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='manuelfilter')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.BUTTON_TXT,
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
-    elif query.data == "autofilter":
-        buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.AUTOFILTER_TXT,
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
+
     elif query.data == "coct":
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
@@ -516,7 +486,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "stats":
         await query.answer("let i check my stats 😌")
         buttons = [[
-            InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='featuresS'),
+            InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='help'),
             InlineKeyboardButton('ʀᴇғʀᴇsʜ ♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -538,7 +508,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rfrsh":
         await query.answer("ᴀɢᴀɪɴ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴄʜᴇᴄᴋ 😰")
         buttons = [[
-            InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='featuresS'),
+            InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='help'),
             InlineKeyboardButton('refresh♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -555,7 +525,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html',
             disable_web_page_preview=True
         )
-        
+        await query.answer('checking again....')
         
 #try new
 
