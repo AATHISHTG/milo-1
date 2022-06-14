@@ -413,14 +413,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ℹ️ Help', callback_data='to_help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.delete()
         await query.message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
         )
-        
+        await query.message.delete()        
         
     elif query.data == "to_help":
         buttons = [[
