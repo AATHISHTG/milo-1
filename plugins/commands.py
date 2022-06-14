@@ -107,6 +107,9 @@ async def start(client, message):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+        
+    await asyncio.sleep(30)
+    await fmsg.delete()
         return
     data = message.command[1]
     try:
