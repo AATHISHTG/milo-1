@@ -407,7 +407,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/jns_bots')
         ], [
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
@@ -433,30 +433,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.HELP_TXT.format(query.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
-    elif query.data == "about":
-        buttons = [[
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria'),
-            InlineKeyboardButton('♥️ Source', callback_data='source')
-        ], [
-            InlineKeyboardButton('🏠 Home', callback_data='start'),
-            InlineKeyboardButton('🔐 Close', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.ABOUT_TXT.format(temp.B_NAME),
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
-    elif query.data == "source":
-        buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='about')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.SOURCE_TXT,
             reply_markup=reply_markup,
             parse_mode='html'
         )
@@ -522,10 +498,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+        
     elif query.data == "stats":
+        await query.answer("let i check my stats 😌")
         buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
+            InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='featuresS'),
+            InlineKeyboardButton('ʀᴇғʀᴇsʜ ♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -535,16 +513,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        await query.message.edit_text(
+        await query.message.delete()
+        await query.message.reply(
             text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode='html',
+            disable_web_page_preview=True
         )
+
     elif query.data == "rfrsh":
-        await query.answer("Fetching MongoDb DataBase")
+        await query.answer("ᴀɢᴀɪɴ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴄʜᴇᴄᴋ 😰")
         buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
+            InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='featuresS'),
+            InlineKeyboardButton('refresh♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -555,10 +536,88 @@ async def cb_handler(client: Client, query: CallbackQuery):
         monsize = get_size(monsize)
         free = get_size(free)
         await query.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
+            text=script.STATUS_rfrsh_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode='html',
+            disable_web_page_preview=True
         )
+        
+        
+#try new
+
+    elif query.data == "about":
+        await query.message.delete()
+        await query.message.reply_sticker(
+            'CAACAgUAAxkBAAEBGW5ii6X0yNDzQpWTW-kUm6aJobk3mwACMQQAArayWFav_0n-ZhiVESQE',
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('📜ᴏᴘᴇɴ📜', callback_data='about_menu1')
+                    ],
+                    [
+                        InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='start'),
+                        InlineKeyboardButton('ᴄʟᴏsᴇ💤', callback_data='close')
+                    ]
+                ]
+            )
+        )
+        await query.answer('ᴀʙᴏᴜᴛ.......')
+
+    elif query.data == "about_menu1":
+        await query.message.delete()
+        await query.message.reply_sticker(
+            'CAACAgUAAxkBAAEBGXZii63C4l4h00PyZJ7NW-KiO8Tu5AACVgIAAlgW2VUIOduo7bnwjSQE',
+            reply_markup=InlineKeyboardMarkup(
+                [[
+                    InlineKeyboardButton('👑 ᴅᴇᴠ 👑', callback_data='dev_dk'),
+                ],
+                [
+                    InlineKeyboardButton('⚙️ Mᴀɪɴᴛᴀɪɴᴇᴅ Bʏ ⚙️', callback_data='dev_maintain')
+                ],
+                [
+                    InlineKeyboardButton('🎀ʙᴀᴄᴋ🎀', callback_data='start')
+                ]
+                ]
+            )
+        )
+        await query.answer('ᴀʙᴏᴜᴛ.......')
+ 
+    elif query.data == "dev_dk":
+        await query.message.delete()
+        await query.message.reply_sticker(
+            'CAACAgUAAxkBAAEBH0hinPbKkK2Q1dNeMLOBxzDTaxk7XAAC5AIAAgX8WFYr5CVXDF0kuCQE',
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('❤️‍🔥JNS❤️‍🔥', url=f'http://t.me/JINTONS')
+                    ],
+                    [
+                        InlineKeyboardButton('🤠EVA MARIA🤠', url=f'https://t.me/TeamEvamaria')
+                    ],
+                    [
+                        InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='about_menu1'),
+                        InlineKeyboardButton('ᴄʟᴏsᴇ💤', callback_data='close')
+                    ]
+                ]
+            )
+        ) 
+    elif query.data == "dev_maintain":
+        await query.message.delete()
+        await query.message.reply_sticker(
+            'CAACAgUAAxkBAAEBH0hinPbKkK2Q1dNeMLOBxzDTaxk7XAAC5AIAAgX8WFYr5CVXDF0kuCQE',
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('❤️‍🔥JNS❤️‍🔥', url=f'http://t.me/JINTONS')
+                    ],
+                    [
+                        InlineKeyboardButton('🎀ʙᴀᴄᴋ', callback_data='about_menu1'),
+                        InlineKeyboardButton('ᴄʟᴏsᴇ💤', callback_data='close')
+                    ]
+                ]
+            )
+        )         
+        
     elif query.data.startswith("setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
         grpid = await active_connection(str(query.from_user.id))
