@@ -525,7 +525,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html',
             disable_web_page_preview=True
         )
-        await query.answer('checking again....')
         
 #try new
 
