@@ -539,8 +539,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html',
             disable_web_page_preview=True
         )
-    await asyncio.sleep(30)
-    await fmsg.delete()
+        await asyncio.sleep(30)
+        await fmsg.delete()
     
     elif query.data == "about":
         await query.message.delete()
