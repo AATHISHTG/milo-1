@@ -21,7 +21,6 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
-        await message.delete()
         fmsg = await message.reply_sticker(
             'CAACAgUAAxkBAAEBHLhilcHI9LGFiorY11Cb41HiOT8XxgACbAYAAr4GsFT_LGNUHw4NliQE',
             reply_markup=InlineKeyboardMarkup(
@@ -39,6 +38,7 @@ async def start(client, message):
        
         await asyncio.sleep(30)
         await fmsg.delete()
+        await message.delete()
                    # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
