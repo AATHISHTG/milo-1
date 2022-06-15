@@ -431,6 +431,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.delete()
         await query.message.reply_photo(
             photo=random.choice(PICS),
             caption=script.HELP_TXT.format(query.from_user.mention),
@@ -446,6 +447,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🏋🏻‍♀️ Status', callback_data='stats')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.delete()
         await query.message.reply_photo(
             photo=random.choice(PICS),
             caption=script.HELP_TXT.format(query.from_user.mention),
