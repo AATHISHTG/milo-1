@@ -11,7 +11,7 @@ class script(object):
 ✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
 ✯ 𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂: v1.0.1 [ 𝙱𝙴𝚃𝙰 ]"""
     START_grp_TXT = """
-    Hello {},
+    Hai..,
 My Name Is <a href=https://t.me/{}>{}</a>,
 I can provide movies in group as well as the personal. ADD me to your group as admin or just send movie name to me personally
     
