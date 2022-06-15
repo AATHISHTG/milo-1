@@ -527,7 +527,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         
 #try new
-
+    elif query.data == "aboutgroup":
+        buttons = [[
+            InlineKeyboardButton('🧨ᴄʟᴏsᴇ🧨', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.delete()
+        fmsg = await query.message.reply(
+            text=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            reply_markup=reply_markup,
+            parse_mode='html',
+            disable_web_page_preview=True
+        )
+    await asyncio.sleep(30)
+    await fmsg.delete()
+    
     elif query.data == "about":
         await query.message.delete()
         await query.message.reply_sticker(
