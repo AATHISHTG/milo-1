@@ -408,7 +408,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/jns_bots')
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/Malayalam_Kaduva_Movies_Mallu_HD')
         ], [
             InlineKeyboardButton('ℹ️ Help', callback_data='to_help')
         ]]
@@ -425,7 +425,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('ℹ️ Help', callback_data='help')
         ],[
-            InlineKeyboardButton('🤠GROUP🤠', url=f'http://t.me/JNS_BOTS')
+            InlineKeyboardButton('🤖Updates', url=f'https://t.me/Malayalam_Kaduva_Movies_Mallu_HD')
         ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('😊 About', callback_data='about')
