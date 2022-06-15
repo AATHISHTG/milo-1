@@ -106,7 +106,7 @@ This module only works for my admins
 ★ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱
 ★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱
 
-successfully updated...💫 trust its latest😰
+successfully updated...💫 trust me ,its latest😰
 """
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
