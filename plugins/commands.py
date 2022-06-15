@@ -108,8 +108,6 @@ async def start(client, message):
             parse_mode='html'
         )
         
-    await asyncio.sleep(30)
-    await fmsg.delete()
         return
     data = message.command[1]
     try:
@@ -253,7 +251,9 @@ async def start(client, message):
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
         )
-                    
+
+    await asyncio.sleep(30)
+    await fmsg.delete()                    
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
